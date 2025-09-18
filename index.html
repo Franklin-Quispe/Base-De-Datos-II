@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Franklin</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logoBlanco.png" alt="Logo" class="logo-img" />
+        <div>Mi Portafolio</div>
+      </div>
+    
+      <ul class="nav-links">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <!-- Botón de Login -->
+        <li><a href="login.html" class="btn-login">Login</a></li>
+      </ul>
+    
+      <div class="menu-toggle">☰</div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Hola, soy <span class="highlight">Franklin Quispe</span></h1>
+      <h2 id="dynamic-text"></h2>
+      <p class="hero-text">
+        Bienvenido a mi portafolio personal. Aquí comparto mi camino como estudiante de 
+        <b>Ingeniería de Sistemas</b>, de la Universidad Peruana Los Andes (UPLA), donde 
+        comparto mis proyectos, aprendizajes y aspiraciones en el mundo de la tecnología.
+        En este espacio encontrarás mis proyectos que están organizados en 16 semanas.
+      </p>
+      <a href="#projects" class="btn">Ver Proyectos</a>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <div class="about-container">
+      <img src="fran.jpg" alt="Foto de Franklin" class="about-img">
+      <p>
+        Soy <b>Franklin</b>, estudiante de Ingeniería de Sistemas, apasionado por la programación, 
+        la tecnología y la innovación. Mi objetivo es aprender de cada experiencia y usar la 
+        tecnología como herramienta para transformar ideas en proyectos funcionales y creativos.  
+        Me motiva el deseo de construir soluciones escalables, mejorar procesos y explorar nuevas 
+        tecnologías que puedan aportar al desarrollo de mi comunidad. 🌍  
+        <br><br>
+        En mi tiempo libre disfruto investigar tendencias tecnológicas, trabajar en proyectos 
+        personales y seguir mejorando mis habilidades. Este portafolio representa mi crecimiento 
+        profesional y personal, y espero que inspire a otros a nunca dejar de aprender.
+      </p>
+    </div>
+  </section>
+<!-- PROYECTOS -->
+<section id="projects">
+  <h2>📂 Proyectos por Semana</h2>
+  <div class="weeks-container">
+
+    <!-- Semana 1 -->
+    <div class="week-card" style="background-image: url('s1.jpg')">
+      <div class="overlay">
+        <h3>Semana 1</h3>
+        <p>Proyecto Semana 1</p>
+        <a href="https://docs.google.com/document/d/1YrLeuXYXwSyk3WaJDk4-bIEguGt_l5TsTh6pLkEoBOI/edit?usp=sharing" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Manual GitHub Crear 
+        </a>
+        <a href="https://docs.google.com/document/d/1HzCgth-875gBipFhhE35RPr4KT4c_Mn1uEEcPydDEHg/edit?usp=sharing" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Manual GitHub Subir
+        </a>
+        <a href="https://docs.google.com/document/d/1kpYIgpnlXJtD19Xy59EpxDEHJqb3K2Yv7NMeHD-YRns/edit?usp=sharing" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Informe Tecnico
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 2 -->
+    <div class="week-card" style="background-image: url('s2.jpeg')">
+      <div class="overlay">
+        <h3>Semana 2</h3>
+        <p>Proyecto Semana 2</p>
+        <a href="https://www.canva.com/design/DAGyifKcNEk/0stdhsIZiDDtuUotfuojYQ/edit?utm_content=DAGyifKcNEk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Ejemplo 1
+        </a>
+        <a href="https://docs.google.com/document/d/1sJHygvnTW_50I7TyTs72UDq05B_wm54iYgrwpXoFnZ8/edit?usp=sharing" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Manual SQL Server
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 3 -->
+    <div class="week-card" style="background-image: url('s3.jpeg')">
+      <div class="overlay">
+        <h3>Semana 3</h3>
+        <p>Proyecto Semana 3</p>
+        <a href="archivos/semana3_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana3_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 4 -->
+    <div class="week-card" style="background-image: url('s4.jpg')">
+      <div class="overlay">
+        <h3>Semana 4</h3>
+        <p>Proyecto Semana 4</p>
+        <a href="archivos/semana4_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana4_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 5 -->
+    <div class="week-card" style="background-image: url('s5.jpg')">
+      <div class="overlay">
+        <h3>Semana 5</h3>
+        <p>Proyecto Semana 5</p>
+        <a href="archivos/semana5_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana5_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 6 -->
+    <div class="week-card" style="background-image: url('s6.jpg')">
+      <div class="overlay">
+        <h3>Semana 6</h3>
+        <p>Proyecto Semana 6</p>
+        <a href="archivos/semana6_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana6_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 7 -->
+    <div class="week-card" style="background-image: url('s7.jpg')">
+      <div class="overlay">
+        <h3>Semana 7</h3>
+        <p>Proyecto Semana 7</p>
+        <a href="archivos/semana7_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana7_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 8 -->
+    <div class="week-card" style="background-image: url('s8.jpg')">
+      <div class="overlay">
+        <h3>Semana 8</h3>
+        <p>Proyecto Semana 8</p>
+        <a href="archivos/semana8_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana8_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 9 -->
+    <div class="week-card" style="background-image: url('s9.jpg')">
+      <div class="overlay">
+        <h3>Semana 9</h3>
+        <p>Proyecto Semana 9</p>
+        <a href="archivos/semana9_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana9_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 10 -->
+    <div class="week-card" style="background-image: url('s10.png')">
+      <div class="overlay">
+        <h3>Semana 10</h3>
+        <p>Proyecto Semana 10</p>
+        <a href="archivos/semana10_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana10_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 11 -->
+    <div class="week-card" style="background-image: url('s11.jpg')">
+      <div class="overlay">
+        <h3>Semana 11</h3>
+        <p>Proyecto Semana 11</p>
+        <a href="archivos/semana11_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana11_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 12 -->
+    <div class="week-card" style="background-image: url('s12.jpg')">
+      <div class="overlay">
+        <h3>Semana 12</h3>
+        <p>Proyecto Semana 12</p>
+        <a href="archivos/semana12_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana12_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 13 -->
+    <div class="week-card" style="background-image: url('s13.jpeg')">
+      <div class="overlay">
+        <h3>Semana 13</h3>
+        <p>Proyecto Semana 13</p>
+        <a href="archivos/semana13_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana13_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 14 -->
+    <div class="week-card" style="background-image: url('s14.jpg')">
+      <div class="overlay">
+        <h3>Semana 14</h3>
+        <p>Proyecto Semana 14</p>
+        <a href="archivos/semana14_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana14_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 15 -->
+    <div class="week-card" style="background-image: url('s15.jpg')">
+      <div class="overlay">
+        <h3>Semana 15</h3>
+        <p>Proyecto Semana 15</p>
+        <a href="archivos/semana15_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana15_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+    <!-- Semana 16 -->
+    <div class="week-card" style="background-image: url('s16.jpg')">
+      <div class="overlay">
+        <h3>Semana 16</h3>
+        <p>Proyecto Semana 16</p>
+        <a href="archivos/semana16_archivo1.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-pdf"></i> Archivo 1
+        </a>
+        <a href="archivos/semana16_archivo2.pdf" target="_blank" class="file-link">
+          <i class="fas fa-file-alt"></i> Archivo 2
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact">
+    <h2>Contacto</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea placeholder="Tu mensaje" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Franklin | Portafolio</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

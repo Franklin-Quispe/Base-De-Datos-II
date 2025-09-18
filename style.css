@@ -1,0 +1,355 @@
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #0d0d0d;
+  color: #fff;
+  scroll-behavior: smooth;
+  padding-top: 80px; /* espacio para navbar fijo */
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 2px solid rgb(240, 0, 0);
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+/* Botón Login */
+.btn-login {
+  background: #f00101;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn-login:hover {
+  background: #0056b3;
+}
+
+/* Oculto la barra para efecto scroll */
+.navbar.hide {
+  top: -80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* pegado al logo */
+  font-size: 1.8rem;
+  color: rgb(255, 255, 255);
+}
+
+.logo-img {
+  width: 40px;
+  height: auto;
+}
+
+/* Navegación */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: red;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* HERO */
+#hero {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+  padding: 0 5%;
+  gap: 40px;
+  background-image: url('1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+#hero h1 {
+  font-size: 3.5rem;
+}
+
+#hero .highlight {
+  color: orange;
+}
+
+#hero h2 {
+  font-size: 1.5rem;
+  margin: 15px 0;
+}
+
+.btn {
+  background: red;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: orange;
+}
+
+/* HERO TEXTO */
+.hero-text {
+  max-width: 700px;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  text-align: left;
+  margin-left: 40px;
+}
+
+/* HERO IMAGEN GRANDE */
+.hero-img {
+  flex: 1;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* SOBRE MI */
+#about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.about-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid red;
+  transition: transform 0.3s;
+}
+
+.about-img:hover {
+  transform: scale(1.08);
+}
+
+.about-container p {
+  max-width: 600px;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* PROYECTOS */
+#projects {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.weeks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.week-card {
+  position: relative;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  animation: moveBackground 20s linear infinite alternate;
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s;
+}
+
+.week-card:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.6);
+}
+
+@keyframes moveBackground {
+  0% { background-position: center top; }
+  50% { background-position: center center; }
+  100% { background-position: center bottom; }
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.week-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  color: red;
+  margin-bottom: 5px;
+}
+
+.overlay p {
+  margin-bottom: 10px;
+}
+
+.file-link {
+  display: block;
+  margin: 5px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: red;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.file-link:hover {
+  background: orange;
+}
+
+/* CONTACTO */
+#contact {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+#contact button {
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    background: #111;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    gap: 20px;
+    z-index: 999;
+  }
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-img {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+
+  .about-img {
+    width: 240px;
+    height: 240px;
+  }
+  .week-card {
+    height: 280px;
+  }
+}
