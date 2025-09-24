@@ -107,6 +107,16 @@ body {
   max-width: 600px;
 }
 
+/* Caja transparente en HERO */
+.glass-box {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  animation: fadeInUp 2s ease-in-out;
+}
+
 #hero h1 {
   font-size: 3.5rem;
 }
@@ -218,6 +228,7 @@ body {
   height: 320px;
   border-radius: 18px;
   overflow: hidden;
+  background-image: url('s1.jpg'); /* 👈 ahora todas usan una sola imagen */
   background-size: cover;
   background-position: center;
   animation: moveBackground 20s linear infinite alternate;
@@ -306,6 +317,32 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 30px;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s ease;
+}
+.fade-left.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* RESPONSIVE */
