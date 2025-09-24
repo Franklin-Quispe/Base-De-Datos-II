@@ -89,4 +89,11 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 
-document.querySelectorAll("section, .week-card").forEach(el => observer.observe(el));
+document.querySelectorAll("section, .week-card").forEach(el => {
+  if (el.id === "about" || el.id === "contact") {
+    el.classList.add("fade-up");
+  } else {
+    el.classList.add("fade-left");
+  }
+  observer.observe(el);
+});
