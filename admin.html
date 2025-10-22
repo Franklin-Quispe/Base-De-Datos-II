@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin - Franklin</title>
+  <link rel="stylesheet" href="admin.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="logo-wrap">
+      <img src="assets/logo.png" alt="logo" class="logo-small">
+      <h1>Panel Admin</h1>
+    </div>
+    <button id="logout" class="btn-logout">Cerrar sesión</button>
+  </header>
+
+  <main class="admin-main">
+    <section id="loginSection" class="admin-panel">
+      <!-- this section shown only if not sessionStorage.admin -->
+      <h2>Inicia sesión (admin)</h2>
+      <input id="adm-user" placeholder="Usuario" value="admin"/>
+      <input id="adm-pass" placeholder="Contraseña" value="1234"/>
+      <button id="adm-login" class="btn primary">Entrar</button>
+      <p id="adm-msg"></p>
+    </section>
+
+    <section id="panelSection" class="admin-panel hidden">
+      <h2>Gestión de Proyectos</h2>
+
+      <form id="projectForm" class="project-form">
+        <input id="p-img" placeholder="URL imagen (opcional)" />
+        <input id="p-semana" placeholder="Semana (ej. Semana 1)" required />
+        <input id="p-desc" placeholder="Título/Descripción breve" required />
+        <input id="p-git" placeholder="Enlace GitHub" />
+        <input id="p-extras" placeholder="Enlaces extras (coma-separated)" />
+        <button type="submit" class="btn primary">Agregar / Actualizar</button>
+      </form>
+
+      <table class="admin-table">
+        <thead><tr><th>#</th><th>Semana</th><th>Título</th><th>GitHub</th><th>Extras</th><th>Acciones</th></tr></thead>
+        <tbody id="tablaBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

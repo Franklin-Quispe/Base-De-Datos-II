@@ -1,0 +1,110 @@
+USE QhatuPERU2;
+GO
+
+SELECT '--- CONSULTAS BÁSICAS ---';
+SELECT * FROM TIENDA;
+SELECT NomProveedor, Representante FROM PROVEEDOR;
+SELECT NomLinea, Descripcion FROM LINEA;
+SELECT DescripcionArticulo, StockActual FROM ARTICULO;
+SELECT NomTransportista, Telefono FROM TRANSPORTISTA;
+SELECT NumOrden, FechaOrden, FechaIngreso FROM ORDEN_COMPRA;
+SELECT CodTienda, FechaSalida FROM GUIA_ENVIO;
+SELECT NumOrden, CodArticulo, CantidadSolicitada FROM ORDEN_DETALLE;
+SELECT Direccion, Ciudad FROM PROVEEDOR;
+SELECT NumGuia, CodArticulo, CantidadEnviada FROM GUIA_DETALLE;
+
+SELECT '--- CONSULTAS CON COLUMNAS CALCULADAS ---';
+SELECT DescripcionArticulo, PrecioProveedor, StockActual, (PrecioProveedor * StockActual) AS ValorInventarioTotal FROM ARTICULO;
+SELECT DescripcionArticulo, PrecioProveedor, (PrecioProveedor * 1.30) AS PrecioVentaAumentado FROM ARTICULO;
+SELECT NumOrden, CodArticulo, PrecioCompra, CantidadSolicitada, (PrecioCompra * CantidadSolicitada) AS CostoTotalOrden FROM ORDEN_DETALLE;
+SELECT NomProveedor, Direccion + ', ' + Ciudad + ', ' + Departamento AS UbicacionCompleta FROM PROVEEDOR;
+SELECT NumGuia, CodArticulo, PrecioVenta, CantidadEnviada, (PrecioVenta * CantidadEnviada) AS ValorTotalEnvio FROM GUIA_DETALLE;
+SELECT DescripcionArticulo, PrecioProveedor, (PrecioProveedor * 1.10) AS PrecioSimulado FROM ARTICULO;
+SELECT NumOrden, CodArticulo, CantidadSolicitada, CantidadRecibida, (CantidadSolicitada - CantidadRecibida) AS DiferenciaRecibida FROM ORDEN_DETALLE WHERE CantidadRecibida IS NOT NULL;
+SELECT DescripcionArticulo, StockActual, StockMinimo, (StockActual - StockMinimo) AS DiferenciaStock FROM ARTICULO;
+SELECT UPPER(NomLinea) AS LineaMayusculas, Descripcion FROM LINEA;
+SELECT 'P-' + CAST(CodProveedor AS VARCHAR(10)) + ' - ' + NomProveedor AS ProveedorCompleto FROM PROVEEDOR;
+
+SELECT '--- CONSULTAS CON FILTROS (WHERE) ---';
+SELECT DescripcionArticulo, StockActual FROM ARTICULO WHERE StockActual < 10;
+SELECT NomProveedor, Ciudad FROM PROVEEDOR WHERE Ciudad = 'Lima';
+SELECT NumOrden FROM ORDEN_DETALLE WHERE Estado = 'Pendiente';
+SELECT DescripcionArticulo FROM ARTICULO WHERE Descontinuado = 1;
+SELECT NumGuia, CodTienda, FechaSalida FROM GUIA_ENVIO WHERE CodTransportista = 1;
+SELECT DescripcionArticulo, PrecioProveedor FROM ARTICULO WHERE PrecioProveedor > 50;
+SELECT CodTienda, Direccion FROM TIENDA WHERE Distrito = 'Miraflores';
+SELECT NumOrden, CodArticulo, CantidadSolicitada FROM ORDEN_DETALLE WHERE CantidadSolicitada > 100;
+SELECT NomLinea FROM LINEA WHERE NomLinea <> 'Bebidas';
+SELECT NomProveedor FROM PROVEEDOR WHERE Fax IS NULL OR Fax = '';
+
+SELECT '--- CONSULTAS CON FECHAS ---';
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE CAST(FechaOrden AS DATE) = '2025-10-05';
+SELECT NumGuia, FechaSalida FROM GUIA_ENVIO WHERE FechaSalida < '2025-01-01';
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE FechaIngreso IS NULL;
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE YEAR(FechaOrden) = 2025 AND MONTH(FechaOrden) = 9;
+SELECT NumGuia, FechaSalida FROM GUIA_ENVIO WHERE FechaSalida >= DATEADD(WEEK, -1, GETDATE());
+SELECT NumOrden, FechaOrden, FechaIngreso FROM ORDEN_COMPRA WHERE FechaIngreso > FechaOrden;
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE YEAR(FechaOrden) = 2025 AND MONTH(FechaOrden) BETWEEN 1 AND 3;
+SELECT NumGuia, FechaSalida FROM GUIA_ENVIO WHERE CAST(FechaSalida AS DATE) = CAST(GETDATE() AS DATE);
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE YEAR(FechaOrden) = 2024;
+SELECT NumOrden, DATEDIFF(DAY, FechaOrden, FechaIngreso) AS DiasDeEspera FROM ORDEN_COMPRA WHERE DATEDIFF(DAY, FechaOrden, FechaIngreso) > 10;
+
+SELECT '--- CONSULTAS CON LIKE ---';
+SELECT DescripcionArticulo FROM ARTICULO WHERE DescripcionArticulo LIKE 'Leche%';
+SELECT NomProveedor FROM PROVEEDOR WHERE NomProveedor LIKE '%S.A.%';
+SELECT NomLinea FROM LINEA WHERE NomLinea LIKE '%s';
+SELECT Direccion FROM TIENDA WHERE Direccion LIKE '%Av.%';
+SELECT DescripcionArticulo, Presentacion FROM ARTICULO WHERE Presentacion LIKE '%Caja%';
+SELECT NomProveedor, Representante FROM PROVEEDOR WHERE Representante LIKE 'Ana%';
+SELECT NomTransportista FROM TRANSPORTISTA WHERE NomTransportista LIKE '[A-C]%';
+SELECT DescripcionArticulo FROM ARTICULO WHERE DescripcionArticulo LIKE '___';
+SELECT NomProveedor, Ciudad FROM PROVEEDOR WHERE Ciudad LIKE 'San%';
+SELECT NomLinea FROM LINEA WHERE NomLinea NOT LIKE '%Lácteos%';
+
+SELECT '--- CONSULTAS CON BETWEEN ---';
+SELECT DescripcionArticulo, StockActual FROM ARTICULO WHERE StockActual BETWEEN 20 AND 50;
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE FechaOrden BETWEEN '2025-09-01' AND '2025-09-30 23:59:59';
+SELECT DescripcionArticulo, PrecioProveedor FROM ARTICULO WHERE PrecioProveedor BETWEEN 10 AND 25;
+SELECT NumGuia FROM GUIA_ENVIO WHERE NumGuia BETWEEN 100 AND 200;
+SELECT NomProveedor FROM PROVEEDOR WHERE NomProveedor BETWEEN 'A' AND 'Lz';
+SELECT NumOrden, CodArticulo, CantidadSolicitada FROM ORDEN_DETALLE WHERE CantidadSolicitada BETWEEN 50 AND 100;
+SELECT CodTienda, Direccion FROM TIENDA WHERE CodTienda BETWEEN 1 AND 5;
+SELECT NumGuia, CodArticulo, PrecioVenta FROM GUIA_DETALLE WHERE PrecioVenta BETWEEN 15 AND 30;
+SELECT DescripcionArticulo, CodLinea FROM ARTICULO WHERE CodLinea BETWEEN 1 AND 3;
+SELECT NomProveedor, CodigoPostal FROM PROVEEDOR WHERE CodigoPostal BETWEEN 'CP01000' AND 'CP02000';
+
+SELECT '--- CONSULTAS CON IN ---';
+SELECT DescripcionArticulo, CodLinea FROM ARTICULO WHERE CodLinea IN (1, 3, 5);
+SELECT NomProveedor, Ciudad FROM PROVEEDOR WHERE Ciudad IN ('Lima', 'Arequipa', 'Cusco');
+SELECT NumOrden, CodArticulo, Estado FROM ORDEN_DETALLE WHERE Estado IN ('Recibido', 'Parcial');
+SELECT CodTienda, Distrito FROM TIENDA WHERE CodTienda IN (2, 4, 6);
+SELECT NumGuia, CodTransportista FROM GUIA_ENVIO WHERE CodTransportista IN (1, 3);
+SELECT DescripcionArticulo, CodProveedor FROM ARTICULO WHERE CodProveedor IN (10, 20, 30);
+SELECT NumOrden, CodArticulo, CantidadSolicitada FROM ORDEN_DETALLE WHERE NumOrden IN (1001, 1005, 1010);
+SELECT NomProveedor, Departamento FROM PROVEEDOR WHERE Departamento NOT IN ('Lima', 'Callao');
+SELECT DescripcionArticulo, Presentacion FROM ARTICULO WHERE Presentacion IN ('Botella', 'Lata');
+SELECT NumGuia, CodArticulo FROM GUIA_DETALLE WHERE CodArticulo IN (112, 115, 203);
+
+SELECT '--- CONSULTAS CON NULL ---';
+SELECT NomProveedor FROM PROVEEDOR WHERE Fax IS NULL OR Fax = '';
+SELECT NumOrden FROM ORDEN_COMPRA WHERE FechaIngreso IS NULL;
+SELECT DescripcionArticulo FROM ARTICULO WHERE Presentacion IS NULL OR Presentacion = '';
+SELECT NumOrden, CodArticulo FROM ORDEN_DETALLE WHERE CantidadRecibida IS NULL;
+SELECT NomProveedor FROM PROVEEDOR WHERE Representante IS NULL OR Representante = '';
+SELECT NomProveedor, Fax FROM PROVEEDOR WHERE Fax IS NOT NULL AND Fax <> '';
+SELECT NumOrden, FechaOrden, FechaIngreso FROM ORDEN_COMPRA WHERE FechaIngreso IS NOT NULL;
+SELECT DescripcionArticulo FROM ARTICULO WHERE PrecioProveedor IS NULL;
+SELECT NomProveedor FROM PROVEEDOR WHERE CodigoPostal IS NULL OR CodigoPostal = '';
+SELECT NumOrden, CodArticulo FROM ORDEN_DETALLE WHERE Estado IS NULL OR Estado = '';
+
+SELECT '--- CONSULTAS CON FUNCIONES DE FECHA ---';
+SELECT NumOrden, FechaOrden, YEAR(FechaOrden) AS AñoOrden FROM ORDEN_COMPRA;
+SELECT NumGuia, FechaSalida, MONTH(FechaSalida) AS MesSalida, DAY(FechaSalida) AS DiaSalida FROM GUIA_ENVIO;
+SELECT NumOrden, DATEDIFF(DAY, FechaOrden, FechaIngreso) AS DiasParaIngreso FROM ORDEN_COMPRA WHERE FechaIngreso IS NOT NULL;
+SELECT NumOrden, FechaOrden, DATENAME(WEEKDAY, FechaOrden) AS DiaDeLaSemana FROM ORDEN_COMPRA;
+SELECT NumOrden, FechaOrden FROM ORDEN_COMPRA WHERE YEAR(FechaOrden) = YEAR(GETDATE()) AND MONTH(FechaOrden) = MONTH(GETDATE());
+SELECT NumGuia, FechaSalida, DATEADD(DAY, 15, FechaSalida) AS FechaEstimadaEntrega FROM GUIA_ENVIO;
+SELECT GETDATE() AS FechaHoraActual;
+SELECT NumGuia, FechaSalida FROM GUIA_ENVIO WHERE FechaSalida >= DATEADD(QUARTER, DATEDIFF(QUARTER, 0, GETDATE()) - 1, 0);
+SELECT NumOrden, CAST(FechaOrden AS DATE) AS SoloFecha FROM ORDEN_COMPRA;
+SELECT NumOrden, CONVERT(VARCHAR(10), FechaOrden, 103) AS FechaFormateada FROM ORDEN_COMPRA;
