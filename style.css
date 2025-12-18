@@ -1,0 +1,155 @@
+/* ================= GENERAL ================= */
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
+:root{
+  --bg:#071219; --card:#0f1416; --accent:#00bcd4; --muted:#bfcfd3;
+}
+html,body{height:100%}
+body{background:linear-gradient(180deg,#02060a,#07121a);color:#fff;overflow-x:hidden}
+
+/* ====== PARTICLES CANVAS full-screen ====== */
+#particles{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* ================= NAVBAR ================= */
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1200;display:flex;justify-content:space-between;align-items:center;padding:12px 22px;background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.2));backdrop-filter:blur(4px)}
+.logo-nombre{display:flex;align-items:center;gap:12px;z-index:1300}
+.logo{width:44px;height:44px;border-radius:8px;object-fit:cover;border:1px solid rgba(255,255,255,0.03)}
+.nav .menu{list-style:none;display:flex;gap:18px;align-items:center}
+.nav .menu a{color:#fff;text-decoration:none;font-weight:600;transition:color .18s}
+.nav .menu a:hover{color:var(--accent)}
+.menu-toggle{display:none}
+
+/* ================ HERO / INICIO ================ */
+.section-fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.inicio{padding:110px 6% 80px;display:flex;gap:30px;align-items:center;z-index:10}
+.inicio-left{flex:1;max-width:780px}
+.headline{font-size:2.6rem;color:var(--accent);margin-bottom:12px}
+.lead{color:var(--muted);max-width:650px}
+.actions{margin-top:18px;display:flex;gap:12px;align-items:center}
+.btn{cursor:pointer;border-radius:999px;padding:10px 18px;border:0;font-weight:700}
+.btn.primary{background:var(--accent);color:#021019;box-shadow:0 14px 40px rgba(0,188,212,0.07)}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.06)}
+.social{margin-top:18px}
+.social a{display:inline-block;margin-right:10px;color:#fff;font-size:18px;padding:8px;border-radius:8px;transition:transform .15s}
+.social a:hover{transform:translateY(-4px);color:var(--accent)}
+.inicio-right{flex:0 0 420px;display:flex;justify-content:center;align-items:center}
+.hero{width:100%;max-width:400px;height:auto;border-radius:12px;object-fit:cover;object-position:center;box-shadow:0 32px 80px rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.03)}
+
+/* ================ SOBRE ================ */
+.sobre{padding:60px 6%;display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap}
+.sobre-content{display:flex;gap:24px;align-items:center;width:100%;justify-content:center}
+.sobre-texto{flex:1;min-width:260px;max-width:600px;text-align:left}
+.sobre-texto h2{color:var(--accent);margin-bottom:8px}
+.sobre-texto p{color:var(--muted);line-height:1.6}
+.sobre-img{flex:0 0 auto;text-align:center}
+.sobre-img img{width:320px;max-width:100%;border-radius:10px;object-fit:cover;object-position:center;box-shadow:0 18px 40px rgba(0,188,212,0.06);margin:0 auto;}
+
+/* ================ PROYECTOS ================ */
+.proyectos{padding:50px 6%;background:linear-gradient(180deg,transparent,#02101a)}
+.proyectos h2{color:var(--accent);margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:18px}
+.unidad{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+.cap{color:var(--muted);margin-bottom:12px}
+
+/* carousel */
+.carousel{display:flex;gap:16px;overflow-x:auto;padding:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.card-tarjeta{flex:0 0 260px;background:var(--card);border-radius:10px;overflow:hidden;scroll-snap-align:start;border:1px solid rgba(255,255,255,0.02);transition:transform .25s,box-shadow .25s}
+.card-tarjeta:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+.card-thumb{width:100%;height:150px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,0.03)}
+.card-body{padding:12px}
+.card-body h4{color:var(--accent);margin-bottom:8px}
+.card-body p{color:var(--muted);font-size:.95rem;margin-bottom:10px}
+.card-actions{display:flex;gap:14px;justify-content:center}
+
+/* ================ MODALES ================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.modal-inner {
+  background: linear-gradient(180deg,#081016,#0f1416);
+  padding: 22px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+/* === Dentro del modal (solo Ver en GitHub) === */
+.modal-inner .pro-buttons .btn.ghost {
+  display: none !important;
+}
+
+/* === Mis Datos (imagen arriba) === */
+.datos-grid{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.perfil{width:180px;height:180px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,188,212,0.25);box-shadow:0 0 25px rgba(0,188,212,0.08)}
+
+/* === Proyectos (alineado y bonito) === */
+.pro-layout{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.pro-img img{width:360px;max-width:100%;border-radius:10px;object-fit:cover;object-position:center;box-shadow:0 0 30px rgba(0,188,212,0.1)}
+.pro-data h2{color:var(--accent);margin-bottom:8px}
+.comp{color:var(--muted);font-weight:600}
+.tareas-list{margin-top:10px;color:var(--muted);line-height:1.5;list-style:none;padding-left:0}
+.tareas-list li{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.tcount{margin-top:8px;color:#ffd66b;font-weight:700}
+.pro-buttons{margin-top:14px;display:flex;gap:14px;justify-content:center}
+
+/* ================ CONTACTO ================ */
+.contacto{padding:60px 6%;text-align:center}
+.contacto h2{color:var(--accent);margin-bottom:10px}
+.sub{color:var(--muted);margin-bottom:18px}
+.form{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left}
+.form input,.form textarea{background:var(--card);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;color:#fff;width:100%}
+
+/* ================ RESPONSIVE / MENU HAMBURGUESA ================ */
+@media(max-width:900px){
+  .inicio{padding:120px 5% 60px;flex-direction:column-reverse;align-items:center}
+  .inicio-right{margin-bottom:18px}
+  .hero{max-width:320px}
+  .sobre-img img{width:260px}
+  .card-tarjeta{flex:0 0 200px}
+  .perfil{width:160px;height:160px}
+  .pro-img img{width:100%;max-width:300px}
+}
+
+/* 📱 Ajustes específicos móviles */
+@media(max-width:768px){
+  .nav .menu{position:fixed;top:0;right:-320px;width:320px;height:100vh;background:linear-gradient(180deg,#061218,#071217);flex-direction:column;align-items:flex-start;padding:80px 18px;gap:18px;transition:right .32s cubic-bezier(.2,.9,.3,1);box-shadow:-8px 0 40px rgba(0,0,0,0.6);z-index:1300}
+  .nav .menu.open{right:0}
+  .menu-toggle{display:inline-flex;flex-direction:column;gap:6px;width:34px;height:26px;justify-content:center;align-items:center;background:transparent;border:0;cursor:pointer}
+  .menu-toggle span{display:block;width:22px;height:2.6px;background:#fff;border-radius:3px;transition:transform .28s,opacity .2s}
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav .menu a{font-size:1.05rem;color:#fff}
+  .inicio{padding-top:110px;flex-direction:column;text-align:center}
+  .inicio-left{order:1}
+  .inicio-right{order:2;margin-top:20px}
+  .hero{max-width:260px}
+  .sobre-content{flex-direction:column;text-align:center}
+  .sobre-img img{width:220px;margin-bottom:12px}
+  .modal-inner{width:90%;max-width:360px;padding:16px}
+  .pro-img img{max-width:200px;margin:0 auto;display:block}
+  .close{font-size:30px}
+}

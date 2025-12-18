@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portafolio - Franklin Quispe</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0f1f5a4.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+  <!-- PARTICLES CANVAS -->
+  <canvas id="particles"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="left">
+      <div class="logo-nombre">
+        <img src="assets/logoBlanco.png" alt="Logo" class="logo">
+        <h1>Franklin Quispe</h1>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="menu" class="menu">
+        <li><a href="#inicio" class="menu-link">Inicio</a></li>
+        <li><a href="#" class="menu-link" id="btnDatos">Datos</a></li>
+        <li><a href="#sobre" class="menu-link">Sobre el Curso</a></li>
+        <li><a href="#proyectos" class="menu-link">Proyectos</a></li>
+        <li><a href="#contacto" class="menu-link">Contacto</a></li>
+        <li><a href="#" class="menu-link" id="btnLogin">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- INICIO -->
+  <main>
+    <section id="inicio" class="inicio section-fade">
+      <div class="inicio-left">
+        <h2 class="headline">Bienvenidos a mi Portafolio Personal</h2>
+        <p>Aquí comparto mi camino como estudiante de Ingeniería de Sistemas
+de la Universidad Peruana los Andes (UPLA)</p>
+        <p class="lead">Explora mis proyectos del curso <strong>Base de Datos II</strong>. En 16 semanas de 4 unidades.</p>
+        <div class="actions">
+          <button class="btn primary" onclick="scrollToSection('proyectos')">Ver Proyectos</button>
+          <button class="btn ghost" id="openDatosBtn">Mis Datos</button>
+        </div>
+
+        <div class="social">
+          <a href="https://github.com/Franklin-Quispe/Base-De-Datos-II" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="inicio-right">
+        <img src="assets/progra.jpg" alt="Programador" class="hero">
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre section-fade">
+      <div class="sobre-content">
+        <div class="sobre-texto">
+          <h2>Sobre el Curso</h2>
+          <p>Base de Datos II aborda la arquitectura, el diseño relacional, normalización, SQL avanzado y la integración con aplicaciones. Se enfatizan buenas prácticas de seguridad, integridad y recuperación de datos, el curso de Base de Datos II tiene como objetivo profundizar en los conceptos de modelado, diseño y gestión de bases de datos, aplicando arquitecturas modernas y herramientas prácticas para el desarrollo de sistemas eficient</p>
+        </div>
+        <div class="sobre-img">
+          <img src="assets/img.jpeg" alt="Curso">
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="proyectos section-fade">
+      <h2>Proyectos del Curso</h2>
+      <p class="sub">4 Unidades • 16 Semanas — Haz clic en una tarjeta para ver detalles</p>
+
+      <!-- Unidad template containers -->
+      <article class="unidad">
+        <h3>UNIDAD I: INTRODUCCIÓN A LA ARQUITECTURA DE LA BASE DE DATOS
+</h3>
+        <p class="cap">Capacidad: Identifica las arquitecturas de base de datos mediante su capacidad de implementación en gestores de 
+base de datos DBMS vigentes para poder determinar cómo tenemos que almacenar, organizar e 
+integrar los datos.</p>
+        <div class="carousel" id="unidad1"></div>
+      </article>
+
+      <article class="unidad">
+        <h3>UNIDAD II:  ADMINISTRACIÓN DE LA INSTANCIA DEL SERVIDOR</h3>
+        <p class="cap">Gestiona las instancias del servidor, estructuras de almacenamiento, esquemas de una base de datos 
+para trabajar con datos de cualquiera de las bases de datos administradas por una instancia y poder 
+manejar grandes cantidades de datos de manera eficiente.</p>
+        <div class="carousel" id="unidad2"></div>
+      </article>
+
+      <article class="unidad">
+        <h3>UNIDAD III: ADMINISTRACIÓN DE LA SEGURIDAD</h3>
+        <p class="cap">Capacidad: Gestiona la seguridad, entorno de red, backups, recuperación de fallos y ejecución de backups para 
+establecer y mantener la confidencialidad, la integridad y la disponibilidad de las bases de datos</p>
+        <div class="carousel" id="unidad3"></div>
+      </article>
+
+      <article class="unidad">
+        <h3>UNIDAD IV: ADMINISTRACIÓN DEL DESEMPEÑOL</h3>
+        <p class="cap">Capacidad: Gestiona el monitoreo, desempeño y flashback del Servidor para mantener la información detallada y 
+actualizada sobre cómo funcionan las aplicaciones de la base de datos y cuándo se detecta un 
+problema y que permita ver el estado pasado de los datos o restaurar una tabla o la totalidad de la 
+base de datos a un momento del pasado</p>
+        <div class="carousel" id="unidad4"></div>
+      </article>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto section-fade">
+      <h2>Contáctame</h2>
+      <form id="formContacto" class="form">
+        <input type="text" id="c-name" placeholder="Nombre" required>
+        <input type="email" id="c-email" placeholder="Correo" required>
+        <textarea id="c-msg" placeholder="Mensaje" required></textarea>
+        <button class="btn primary" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- MODAL DATOS -->
+  <div class="modal" id="modalDatos" aria-hidden="true">
+    <div class="modal-inner">
+      <button class="close" id="closeDatos">&times;</button>
+      <div class="datos-grid">
+        <img src="assets/fran.jpg" alt="Franklin" class="perfil">
+        <div>
+          <h2>Franklin Quispe S.</h2>
+          <p><strong>Carrera:</strong> Ingeniería de Sistemas y Computación</p>
+          <p><strong>Universidad:</strong> Universidad Peruana Los Andes (UPLA)</p>
+          <p><strong>Edad:</strong> 20</p>
+          <p><strong>Ubicación:</strong> Huancayo, Perú</p>
+          <p><strong>Email:</strong> Franklinqs123@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PROYECTO -->
+  <div class="modal" id="modalProyecto" aria-hidden="true">
+    <div class="modal-inner proyecto-inner">
+      <button class="close" id="closeProyecto">&times;</button>
+      <div class="pro-layout">
+        <div class="pro-img">
+          <img id="p-img" src="" alt="Proyecto">
+        </div>
+        <div class="pro-data">
+          <h2 id="p-title"></h2>
+          <p class="comp" id="p-competencias"></p>
+          <p id="p-desc"></p>
+          <p class="tcount" id="p-tareas-count"></p>
+          <ul id="p-tareas" class="tareas-list"></ul>
+          <div class="pro-buttons">
+            <a id="p-git" class="btn primary" target="_blank">Ver en GitHub</a>
+            <a id="p-extra" class="btn ghost" target="_blank">Ver Actividad</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL LOGIN -->
+  <div class="modal" id="modalLogin" aria-hidden="true">
+    <div class="modal-inner login-inner">
+      <button class="close" id="closeLogin">&times;</button>
+      <h2>Iniciar Sesión</h2>
+      <input id="loginUser" placeholder="Usuario" value="admin" />
+      <input id="loginPass" type="password" placeholder="Contraseña" value="1234" />
+      <button class="btn primary" id="loginSubmit">Entrar</button>
+      <p id="loginMsg"></p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
